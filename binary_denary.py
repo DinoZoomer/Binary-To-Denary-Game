@@ -12,33 +12,32 @@ def DTOB(x):
     return b
 
 x = randint(0,100)
-#stop_event = Event()
+
 print(DTOB(x))
 class c1(Thread):
     def run(self):
         sleep(10)
-        #if not stop_event.is_set():
+
         print(f"\nTime is up! The answer was {x}")
         os._exit(0)
-        #I need the code to stop c2 here
+
 class c2(Thread):
     def run(self):
         try:
             u_inp = int(input("Enter the number: "))
-            #if stop_event.is_set():
-            #    return
+
             if u_inp == x:
                 print("Correct!")
-            #    stop_event.set()  # Stop timer
+
                 os._exit(0)
             else:
                 print(f"Wrong. The answer was {x}")
-            #    stop_event.set()
+
                 os._exit(0)
 
         except ValueError:
             print("Invalid input.")
-        #stop_event.set()
+
 
 
 t1 = c1() # create class 1
